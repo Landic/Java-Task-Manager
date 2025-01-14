@@ -86,11 +86,8 @@ public class AccountTask {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
-        if (completed) {
-            this.completedDate = LocalDateTime.now();
-        } else {
-            this.completedDate = null;
-        }
+        if (completed) this.completedDate = LocalDateTime.now();
+        else this.completedDate = null;
     }
 
     public LocalDateTime getAssignedDate() {

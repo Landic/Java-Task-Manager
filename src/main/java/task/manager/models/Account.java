@@ -1,6 +1,4 @@
 package task.manager.models;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
