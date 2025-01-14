@@ -1,5 +1,4 @@
 package task.manager.config;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import task.manager.models.TaskCategory;
