@@ -21,12 +21,20 @@ public class AuthController {
     public Map<String, String> register(@RequestBody Map<String, String> payload) {
         String username = payload.get("username");
         String password = payload.get("password");
-        accountService.register(username, password);
+        String email = payload.get("email"); // Получаем email из запроса
+
+        // Проверка на null для email, можно также добавить валидацию
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("Email is required");
+        }
+
+        // Вызываем сервис для регистрации с email
+        accountService.register(username, password, email);
+
         Map<String, String> response = new HashMap<>();
         response.put("message", "Registration successful");
         return response;
     }
-
 
     @PostMapping("/login")
     public Map<String, String> login(@RequestBody Map<String, String> payload) {
@@ -43,5 +51,4 @@ public class AuthController {
         response.put("message", "Login successful");
         return response;
     }
-
 }
