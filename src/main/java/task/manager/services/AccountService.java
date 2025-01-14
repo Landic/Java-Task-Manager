@@ -13,11 +13,10 @@ import java.util.Optional;
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
     }
-    public void register(String username, String password, String email) {
+    public void register(String username, String password) {
         if (accountRepository.findByUsername(username).isPresent())  throw new RuntimeException("Username is already taken");
         Account account = new Account();
         account.setUsername(username);
-        account.setEmail(email);
         account.setPassword(passwordEncoder.encode(password));
         accountRepository.save(account);
     }
