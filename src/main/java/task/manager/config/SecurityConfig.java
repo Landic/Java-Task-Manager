@@ -14,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
     @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authz -> authz
                 .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/tasks/**").permitAll()
                 .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session
